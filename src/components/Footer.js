@@ -1,13 +1,16 @@
 import styled from "styled-components";
 import Button from "./Button"
-export default function Footer() {
-
+export default function Footer(props) {
+    const { cardIndex, closeFlashcard} = props;
     return (
         <>
-        <FooterConcluido>
-                    <Button/>
-                    <p>CONCLUIDOS</p>
-        </FooterConcluido>
+            <FooterConcluido>
+                <Button
+                    closeFlashcard={closeFlashcard}
+                    cardIndex={cardIndex}
+                />
+                <p>CONCLUIDOS</p>
+            </FooterConcluido>
         </>
     )
 }

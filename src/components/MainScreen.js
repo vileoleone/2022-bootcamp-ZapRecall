@@ -1,17 +1,18 @@
 import styled from 'styled-components';
 import logoImage from "../assets/img/logo.png"
 import Deck from './Deck';
-import Footer from "./Footer"
-export default function MainScreen() {
 
+import React from 'react';
+export default function MainScreen() {
+   
+    
     return (
         <ScreenContainer>
             <LogoContainer>
                 <img src={logoImage} alt="logo"></img>
                 <h1>ZapRecall</h1>
             </LogoContainer>
-            <Deck />
-            <Footer />
+            <Deck /* clicked={clicked} clickedSet = {clickedSet} OpenQuestion = {OpenQuestion} OpenQuestionSet = {OpenQuestionSet} *//>
         </ScreenContainer>
     )
 }

@@ -1,11 +1,13 @@
 import styled from "styled-components";
 
-export default function Button() {
+export default function Button(props) {
+    const {closeFlashcard, cardIndex} = props;
+
     return (
         <ContainerButton>
-            <RedButton>Não lembrei</RedButton>
-            <YellowButton> Quase não lembrei</YellowButton>
-            <GreenButton>Zap!</GreenButton>
+            <RedButton value="red" onClick={(e) => closeFlashcard(e.target.value, cardIndex)}>Não lembrei</RedButton>
+            <YellowButton value="yellow" onClick={(e) => closeFlashcard(e.target.value, cardIndex)}> Quase não lembrei</YellowButton>
+            <GreenButton value="green" onClick={(e) => closeFlashcard(e.target.value, cardIndex)}>Zap!</GreenButton>
         </ContainerButton>
 
     )
