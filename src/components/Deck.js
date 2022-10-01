@@ -1,44 +1,48 @@
-import LISTFORDECK from "./ListForDeck"
+import almostGood from "../assets/img/icone_quase.png"
+import arrow from "../assets/img/seta_play.png"
+import bad from "../assets/img/icone_erro.png"
 import Flashcards from "./Flashcards"
 import FlashcardsAfterButton from "./FlashcardsAfterButton"
 import Footer from "./Footer"
+import good from "../assets/img/icone_certo.png"
+import LISTFORDECK from "./ListForDeck"
 import React from "react"
-export default function Deck(props) {
 
-    const [buttonClick, buttonClickSet] = React.useState("")
+export default function Deck(props) {
     const [cardIndex, cardIndexSet] = React.useState()
     const [listOfClicked, listOfClickedSet] = React.useState([])
-    //const [listOfColors, listOfColorsSet] = React.useState([])
+    const [listOfColors, listOfColorsSet] = React.useState(new Array(LISTFORDECK.length).fill(""))
+
     function closeFlashcard(name, index) {
-        changeValueOfButtonCLicked(name)
-        addToList(index)
-        
+        ValueOfButtonCLicked(name, index);
+        addToList(index);
     }
 
     function addToList(index) {
         if (!listOfClicked.includes(listOfClicked)) {
-            const newListOfClicked = [...listOfClicked,index]
-            listOfClickedSet(newListOfClicked);
-            
+            const newListOfClicked = [...listOfClicked, index];
+            listOfClickedSet(newListOfClicked);;
+        }
     }
-}
-    function changeValueOfButtonCLicked (name) {
+
+    function ValueOfButtonCLicked(name, index) {
+ 
+        const newListOfColors = [...listOfColors];
+       
         switch (`${name}`) {
             case "green":
-
-                buttonClickSet("green")
-
+                newListOfColors[index] = "green";
+                listOfColorsSet(newListOfColors);
                 break;
+
             case "yellow":
-
-                buttonClickSet("yellow")
-
+                newListOfColors[index] = "yellow";
+                listOfColorsSet(newListOfColors);
                 break;
 
             case "red":
-
-                buttonClickSet("red")
-
+                newListOfColors[index] = "red";
+                listOfColorsSet(newListOfColors);
                 break;
             default:
 
@@ -46,10 +50,6 @@ export default function Deck(props) {
 
         }
     }
-    
-
-    console.log(listOfClicked)
-    
     return (
         <>
             <main>
@@ -62,8 +62,6 @@ export default function Deck(props) {
                                 numberOfQuestion={info.card}
                                 question={info.FrontQuestion}
                                 awnser={info.BackAnwser}
-                                buttonClick={buttonClick}
-                                buttonClickSet={buttonClickSet}
                                 cardIndex={cardIndex}
                                 cardIndexSet={cardIndexSet}
                             />
@@ -71,21 +69,64 @@ export default function Deck(props) {
                     }
 
                     else {
-                        return (
-                            <FlashcardsAfterButton
-                                key={index}
-                                index={index}
-                                numberOfQuestion={info.card}
-                                buttonClick={buttonClick}
-                            />
-                        )
+                        if (listOfColors[index] === "") {
+                            return (
+                                <FlashcardsAfterButton
+                                    key={index}
+                                    index={index}
+                                    numberOfQuestion={info.card}
+                                    color="#333333"
+                                    icon="seta"
+                                >
+                                    <img src={arrow} alt="arrow"></img>
+                                </FlashcardsAfterButton>
+                            )
+                        }
+                        else if (listOfColors[index] === "green") {
+                            return (
+                                <FlashcardsAfterButton
+                                    key={index}
+                                    index={index}
+                                    numberOfQuestion={info.card}
+                                    color="#2FBE34"
+                                    icon="good"
+                                >
+                                    <img src={good} alt="arrow"></img>
+                                </FlashcardsAfterButton>
+                            )
+                        }
+                        else if (listOfColors[index] === "yellow") {
+                            return (
+                                <FlashcardsAfterButton
+                                    key={index}
+                                    index={index}
+                                    numberOfQuestion={info.card}
+                                    color="#FF922E"
+                                    icon="almostgood"
+                                >
+                                    <img src={almostGood} alt="arrow"></img>
+                                </FlashcardsAfterButton>
+                            )
+                        }
+                        else {
+                            return (
+                                <FlashcardsAfterButton
+                                    key={index}
+                                    index={index}
+                                    numberOfQuestion={info.card}
+                                    color="#FF3030"
+                                    icon="bad"
+                                >
+                                    <img src={bad} alt="arrow"></img>
+                                </FlashcardsAfterButton>
+                            )
+                        }
+
                     }
-                    
+
                 })}
             </main>
             <Footer
-                buttonClick={buttonClick}
-                buttonClickSet={buttonClickSet}
                 closeFlashcard={closeFlashcard}
                 cardIndex={cardIndex}
                 cardIndexSet={cardIndexSet}

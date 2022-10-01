@@ -1,26 +1,23 @@
 import styled from 'styled-components';
-import arrow from "../assets/img/seta_play.png"
 import React from 'react';
 
 
 export default function FlashcardsAfterButton(props) {
-    const {buttonClick} = props
 
-    const color = buttonClick
 
-        return (
-            <>
+    const { color } = props
 
-                <FlashCard>
-                    <PerguntaFechadaComBotãoCLicado
-                    color = {color}
-                    >
-                        <p>{props.numberOfQuestion}</p>
-                        <img src={arrow} alt="arrow" onClick={() => {console.log(color)}} ></img>
-                    </PerguntaFechadaComBotãoCLicado>
-                </FlashCard>
-            </>
-        )
+    return (
+        <>
+
+            <FlashCard>
+                <PerguntaFechadaComBotãoCLicado color={color}>
+                    <p>{props.numberOfQuestion}</p>
+                    {props.children}
+                </PerguntaFechadaComBotãoCLicado>
+            </FlashCard>
+        </>
+    )
 }
 
 
@@ -28,7 +25,7 @@ export default function FlashcardsAfterButton(props) {
 
 const PerguntaFechadaComBotãoCLicado = styled.div`
     align-items: center;
-    background-color:${props => (props.color)};
+    background-color:#FFFFFF;
     border-radius: 5px;
     box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
     display: flex;
@@ -38,12 +35,13 @@ const PerguntaFechadaComBotãoCLicado = styled.div`
     padding: 15px;
     width: 300px;
     p{
-        color: #333333;
+        color: ${props => (props.color)};
         font-family: 'Recursive';
         font-size: 16px;
         font-style: normal;
         font-weight: 700;
         line-height: 19px;
+        text-decoration: line-through;
     }
 `;
 
