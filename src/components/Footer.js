@@ -1,7 +1,9 @@
+import React from "react";
 import styled from "styled-components";
 import Button from "./Button"
 export default function Footer(props) {
-    const { cardIndex, closeFlashcard} = props;
+    const { cardIndex, closeFlashcard, total, count } = props;
+
     return (
         <>
             <FooterConcluido>
@@ -9,7 +11,7 @@ export default function Footer(props) {
                     closeFlashcard={closeFlashcard}
                     cardIndex={cardIndex}
                 />
-                <p>CONCLUIDOS</p>
+                <p>{count} / {total} CONCLUIDOS</p>
             </FooterConcluido>
         </>
     )
@@ -25,11 +27,12 @@ const FooterConcluido = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-family: 'Recursive';
+    font-family: "Recursive";
+    fontstyle: oblique;
     font-weight: 400;
     font-size: 18px;
     color: #333333;
-    padding: 10px;
+    padding: 5px;
 
     ContainerButton {
 

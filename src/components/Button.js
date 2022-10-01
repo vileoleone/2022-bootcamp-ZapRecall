@@ -16,8 +16,9 @@ export default function Button(props) {
 const ContainerButton = styled.div`
         display: flex;
         width: 80%;
+        min-height: 10vh;
         justify-content: space-between;
-        margin: 20px;
+        margin: 10px;
     `;
 
 const GreenButton = styled.button`

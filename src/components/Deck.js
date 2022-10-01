@@ -12,10 +12,15 @@ export default function Deck(props) {
     const [cardIndex, cardIndexSet] = React.useState()
     const [listOfClicked, listOfClickedSet] = React.useState([])
     const [listOfColors, listOfColorsSet] = React.useState(new Array(LISTFORDECK.length).fill(""))
+    const [count, countSet] = React.useState(0)
 
     function closeFlashcard(name, index) {
         ValueOfButtonCLicked(name, index);
         addToList(index);
+        if(count <LISTFORDECK.length) {
+            countSet(count + 1);
+        }
+        
     }
 
     function addToList(index) {
@@ -26,9 +31,9 @@ export default function Deck(props) {
     }
 
     function ValueOfButtonCLicked(name, index) {
- 
+
         const newListOfColors = [...listOfColors];
-       
+
         switch (`${name}`) {
             case "green":
                 newListOfColors[index] = "green";
@@ -127,9 +132,11 @@ export default function Deck(props) {
                 })}
             </main>
             <Footer
+                count={count}
                 closeFlashcard={closeFlashcard}
                 cardIndex={cardIndex}
                 cardIndexSet={cardIndexSet}
+                total={LISTFORDECK.length}
             />
         </>
     )
