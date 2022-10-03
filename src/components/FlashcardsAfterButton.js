@@ -10,7 +10,7 @@ export default function FlashcardsAfterButton(props) {
     return (
         <>
 
-            <FlashCard>
+            <FlashCard data-identifier="flashcard">
                 <PerguntaFechadaComBotãoCLicado color={color}>
                     <p>{props.numberOfQuestion}</p>
                     {props.children}

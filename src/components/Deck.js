@@ -83,7 +83,7 @@ export default function Deck(props) {
                                     color="#333333"
                                     icon="seta"
                                 >
-                                    <img src={arrow} alt="arrow"></img>
+                                    <img data-identifier="flashcard-status" src={arrow} alt="arrow"></img>
                                 </FlashcardsAfterButton>
                             )
                         }
@@ -96,7 +96,7 @@ export default function Deck(props) {
                                     color="#2FBE34"
                                     icon="good"
                                 >
-                                    <img src={good} alt="arrow"></img>
+                                    <img  data-identifier="flashcard-status" src={good} alt="arrow"></img>
                                 </FlashcardsAfterButton>
                             )
                         }
@@ -109,7 +109,7 @@ export default function Deck(props) {
                                     color="#FF922E"
                                     icon="almostgood"
                                 >
-                                    <img src={almostGood} alt="arrow"></img>
+                                    <img data-identifier="flashcard-status" src={almostGood} alt="arrow"></img>
                                 </FlashcardsAfterButton>
                             )
                         }
@@ -122,7 +122,7 @@ export default function Deck(props) {
                                     color="#FF3030"
                                     icon="bad"
                                 >
-                                    <img src={bad} alt="arrow"></img>
+                                    <img data-identifier="flashcard-status" src={bad} alt="arrow"></img>
                                 </FlashcardsAfterButton>
                             )
                         }

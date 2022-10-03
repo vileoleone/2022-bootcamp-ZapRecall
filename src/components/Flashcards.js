@@ -23,7 +23,7 @@ export default function Flashcards(props) {
         return (
             <>
 
-                <FlashCard>
+                <FlashCard data-identifier="flashcard">
                     <PerguntaFechada
                         click={clicked}
                     >
@@ -34,10 +34,10 @@ export default function Flashcards(props) {
                         click={clicked}
                         click2={OpenQuestion}
                     >
-                        <PerguntaAbertaBack click2={OpenQuestion}>
+                        <PerguntaAbertaBack click2={OpenQuestion} data-identifier="flashcard-answer">
                             <p>{props.awnser}</p>
                         </PerguntaAbertaBack>
-                        <PerguntaAbertaFront>
+                        <PerguntaAbertaFront data-identifier="flashcard-question">
                             <p> {props.question} </p>
                             <img src={turnedArrow} alt="arrow" onClick={openQuestionClicked}></img>
                         </PerguntaAbertaFront>

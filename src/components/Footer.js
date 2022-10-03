@@ -11,7 +11,7 @@ export default function Footer(props) {
                     closeFlashcard={closeFlashcard}
                     cardIndex={cardIndex}
                 />
-                <p>{count} / {total} CONCLUIDOS</p>
+                <p data-identifier="flashcard-counter" >{count} / {total} CONCLUIDOS</p>
             </FooterConcluido>
         </>
     )

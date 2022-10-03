@@ -5,9 +5,9 @@ export default function Button(props) {
 
     return (
         <ContainerButton>
-            <RedButton value="red" onClick={(e) => closeFlashcard(e.target.value, cardIndex)}>Não lembrei</RedButton>
-            <YellowButton value="yellow" onClick={(e) => closeFlashcard(e.target.value, cardIndex)}> Quase não lembrei</YellowButton>
-            <GreenButton value="green" onClick={(e) => closeFlashcard(e.target.value, cardIndex)}>Zap!</GreenButton>
+            <RedButton data-identifier="forgot-btn" value="red" onClick={(e) => closeFlashcard(e.target.value, cardIndex)}>Não lembrei</RedButton>
+            <YellowButton data-identifier="almost-forgot-btn" value="yellow" onClick={(e) => closeFlashcard(e.target.value, cardIndex)}> Quase não lembrei</YellowButton>
+            <GreenButton data-identifier="zap-btn" value="green" onClick={(e) => closeFlashcard(e.target.value, cardIndex)}>Zap!</GreenButton>
         </ContainerButton>
 
     )
